@@ -1,0 +1,61 @@
+<footer class="footer">
+  <ul>
+    <li>
+      <a href="/">
+        <i class="fas fa-home"></i>
+        <p>홈</p>
+      </a>
+    </li>
+    <li>
+      <a href="/introduce">
+        <i class="fas fa-book"></i>
+        <p>소개</p>
+      </a>
+    </li>
+    <li>
+      <a href="/course">
+        <i class="fas fa-road"></i>
+        <p>코스 안내</p>
+      </a>
+    </li>
+    <li>
+      <a href="/qr">
+        <i class="fas fa-qrcode"></i>
+        <p>QR</p>
+      </a>
+    </li>
+    <li>
+      <a href="/users">
+        <i class="fas fa-user-alt"></i>
+        <p>회원</p>
+      </a>
+    </li>
+  </ul>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // 현재 페이지의 URL 경로를 가져옵니다.
+  const currentPath = window.location.pathname;
+  // 패스확인
+  console.log("1",currentPath)
+
+  // 모든 footer 내의 a 태그를 선택합니다.
+  const links = document.querySelectorAll(".footer ul li a");
+  // 모든 a태그의 패스 확인(배열에 담김)
+  console.log("2",links)
+
+  // 각 a 태그를 순회하면서 href 값이 현재 URL 경로와 일치하는지 확인합니다.
+  // foreach 비동기 방식 => 순서대로 일을 안함
+  // 앞에 작업과 이어져야한다면 동기 방식 사용
+  links.forEach(link => {
+    // link 안에 href속성 값을 가져옴
+    console.log(link.getAttribute("href"))
+    // 속성값과 현재 패스가 일치하는지 확인
+    if (link.getAttribute("href") === currentPath) {
+      // href 값이 현재 URL과 일치한다면 해당 a 태그의 부모 li에 'on' 클래스를 추가합니다.
+      link.parentElement.classList.add("on");
+    }
+  });
+});
+</script>
